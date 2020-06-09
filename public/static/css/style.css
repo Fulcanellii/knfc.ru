@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=cyrillic,cyrillic-ext,latin-ext');
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+
+body {
+	margin:0;
+	min-height: 100vh;
+	background-image: url(../img/bg.png);
+	background-size: cover;
+	background-position: 35% 50%;
+}
+/* Общие стили закончилась */
+p {
+	margin-bottom: 0;
+}
+
+.header{
+	font-size: 25px;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-top: 25px;
+}
+
+.header span {
+	font-size: 15px;
+	font-weight: 500;
+}
+.login-form {
+  margin-top: 20px;
+  width: 350px;
+  background: #EBEDEE;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  padding: 20px 30px;
+  border-radius: 1px;
+}
+
+form {
+	width:30%;
+	margin:0 auto;
+}
+	form div.step {
+		display:none;
+		text-align: center;
+		font-size: 11px;
+	}
+	
+		form div.step p.step{
+			text-align:center;
+			font-size: 20px;
+			font-weight: 700;
+			width: 100%;
+			line-height: 1.5;
+		}
+
+		form div.step p.question{
+			font-size: 15px;
+			text-align: center;
+		}
+
+		form div.step p.question2{
+			margin-top: 20px;
+			margin-bottom: 10px;
+			font-size: 10px;
+			text-align: center;
+			margin-bottom: 5px;
+		}
+		
+			form div.step p input{
+				float:right;
+			}
+	
+	a.back {
+		display:none;
+	}
+	
+	form input[type=submit] {
+		display:none;
+	}
+	
+	a {
+		color:#006600;
+		text-decoration:none;
+	}
+	
+	form p.talign{
+		margin-top: 5px;
+		text-align:center;
+	}
+
+	.btn-first {
+		margin-top: 5px;
+		background-image: linear-gradient(360deg,#43E97B,#38F9D7);
+		width: 85%;
+		border-radius: 0;
+	}
+
+	.btn-second {
+		margin-top: 5px;
+		background-color: #D6D9DE;
+		width: 85%;
+		border-radius: 0;
+	}
+
+	.btn-sm {
+		width: 50%;
+		border: 2px solid #fff;
+		border-radius: 0;
+		color: #fff;
+		outline: none;
+  		text-decoration: none;
+	}
+
+	.step2 {
+		margin-top: 10px;
+	}
+
+	.btn-sm .fa-arrow-right {
+		float: right;
+		margin-top: 3px;
+	}
+
+	.btn-sm .fa-arrow-left {
+		float: left;
+		margin-top: 3px;
+	}
+
+	.btn-sm:hover{
+		border-color: #000000;
+		color: #000000;
+	}
+
+	.btn-sm:active{
+		outline: none;
+	}
+
+	.step .text-center {
+		font-size: 11px;
+	}
+
+
+	#outImg {
+		margin-bottom: 1rem;
+		margin-top: 1rem;
+	}
+	#outImg1 {
+		margin-bottom: 1rem;
+		margin-top: 1rem;
+	}
+	#outImg2 {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	#outImg-step1 {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	#textImg {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		font-size: 13.2px;
+	}
+
+	#question-step1 {
+		margin-top: 1rem;
+		font-size: 13.2px;
+	}
+
+	#text-step3 {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		font-size: 12.5px;
+	}
+
+	#first_button {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	p.step3{
+		font-size: 17px;
+		font-weight: 700;
+		text-align:center;
+		width: 100%;
+		line-height: 1.5;
+	}
+
+	.key {
+		position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(15%, 55%);
+	}
+
+	.input-form {
+		margin: 0;
+	}
+	.form-group {
+		text-align: initial;
+		font-size: 14px;
+		margin: 0;
+		padding: 0;
+	}
+
+	.form-group label{
+		margin: 2px;
+		padding: 0;
+	}
+
+	#index {
+		font-size: 12px;
+	}
+
+	#house {
+		font-size: 12px;
+	}
+
+	#street {
+		font-size: 12px;
+	}
+
+	#city {
+		font-size: 12px;
+	}
+
+	#flat {
+		font-size: 12px;
+	}
+
+	#uid {
+		font-size: 12px;
+	}
+
+	#number_of_keys {
+		font-size: 12px;
+	}
+
+	#email {
+		font-size: 12px;
+	}
+	.img-step3 {
+		margin-top: 25px;
+	}
+
+	#label_for_keys {
+		float: left;
+		font-size: 14px;
+	}
+
+	#phone_number{
+		font-size: 12px;
+	}
+
+	#small-text-for-keys{
+		font-size: 9px;
+		text-align: initial;
+    	margin-top: 0.3rem;
+	}
+
+	#price {
+		font-size: 17px;
+		font-weight: 700;
+	}
+
+	#img-check {
+		width: 200px;
+		transform: translate(0%, 20%);
+	}
+
+	#third_button {
+		font-weight: 700;
+		color: #007bff;
+		font-size: 13px;
+	}
+
+	#third_button_question {
+		font-weight: 700;
+		color: #007bff;
+		font-size: 13px;
+	}
+
+	#about_button {
+		font-weight: 700;
+		color: #007bff;
+		font-size: 13px;
+	}
+
+	#adress-step5 {
+		display: block;
+	    font-size: 13px;
+	    margin-top: 25px;
+	    margin-left: 95px;
+	}
+
+	#about-text1 {
+		display: block;
+	    font-size: 13px;
+	    margin-left: 95px;
+	}
+
+	#about-texth6 {
+		font-weight: 700;
+		color: #007bff;
+		font-size: 13px;
+	}
+
+	#more {
+		font-weight: 700;
+		color: #007bff;
+	}
+
+	#link-adress-step5 {
+		color: #007bff;
+	}
+
+	#uid_help_link {
+		color: #007bff;
+	    float: right;
+	    font-weight: 700;
+	    margin-top: 5px;
+	}
+
+	.u-AhunterSuggestions { 
+	  border: 1px solid #AAAAAA;
+	  background: white; 
+	  overflow: auto; 
+	  border-radius: 2px;
+	}
+	.u-AhunterSuggestion
+	{ 
+	  padding: 5px;
+	  white-space: nowrap;
+	  overflow: hidden;
+	}
+	.u-AhunterEmptySuggestion
+	{
+	  padding: 5px;  
+	  font-style: italic;
+	  color: #b8661f;
+	}
+	.u-AhunterSelectedSuggestion   
+{ 
+  background: #E7E7E7; 
+}
+.u-AhunterSuggestions strong  
+{ 
+  font-weight: bold; 
+  color: #1B7BB1; 
+}
+
+	@media only screen and (max-width: 767px) {
+	  body {
+	    background-size: auto;
+	    background-position: center;
+	  }
+
+	  .login-form {
+	  	width: 99%;
+	  }
+
+	  #adress-step5{
+	  	margin-left: 0px;
+	  }
+
+	  #about-text1 {
+	  	margin-left: 0px;
+	  }
+
+	  .footer {
+	  	padding-top: 70px;
+	  }
+	  
+	  .key {
+	  	display: none;
+	  }
+	}

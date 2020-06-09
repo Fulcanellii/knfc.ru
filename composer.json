@@ -1,0 +1,15 @@
+{
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^0.6.0",
+        "php-di/php-di": "^6.0",
+        "twig/twig": "^3.0",
+        "phpmailer/phpmailer": "^6.1",
+        "sinergi/browser-detector": "^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "DomoffonApp\\": "app/"
+        }
+    }
+}

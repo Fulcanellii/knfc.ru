@@ -1,0 +1,414 @@
+<div class="header text-center">
+		<p>Служба доставки</p>
+		<p>дубликатов электронных ключей</p>
+		<span id="time">На время тестирования сервиса <br>
+			при изготовлении дубликата вы оплачиваете только доставку</span>
+		<span><a href="#" id="third_button" style="display: none;">Для чего это нужно?</a>
+		</span>
+	</div>
+	<span id="adress-step5" style="display: none;">Выберите значения из появляющихся вариантов <br> <b> <a href="#" id="link-adress-step5">Подробно...</a> </b></span>
+<form action="/handler" method="post" class="login-form" enctype="multipart/form-data">
+		<div class="step">
+			<p class="step">Теперь можете заказать<br>
+				дубликат <br>
+				электронного ключа <br>
+				<span style="color: #43E97B;">online</span></p>
+			<p class="text-center" id="textImg">Просто сфотографируйте ваш ключ <br>на смартфон</p>
+			<div class="buttons">
+			<label class="btn btn-first">
+    		Сделать фото <i class="fas fa-camera" style="margin-left: 7px;"></i><input type="file"name="img" hidden id="img1" onchange="validateImage(this.files)">
+			</label>
+			<label class="btn btn-second">
+    		Выбрать файл <i class="fas fa-plus" style="margin-left: 7px;"></i><input type="file" name="img1" hidden id="img2" onchange="validateImage(this.files)">
+			</label>
+			<p class="question" id="question-step1">У вас много вопросов?</p>
+			<button type="button" id="first_button" class="btn btn-sm">Узнать<i class="fas fa-arrow-right"></i></button>
+			<button type="button" class="btn btn-sm step2 btn-step1" id="next" hidden><i class="fas fa-arrow-right"></i>Далее</button>
+			</div>
+      </div>
+		<div class="step">
+			<p class="step">Сделайте фото со второй <br> стороны ключа</p>
+			<div id="outImg" class="text-center"></div>
+			<div class="buttons step2">
+			<label class="btn btn-first btn-step2" id="btn-step2">
+    		Сделать фото <i class="fas fa-camera" style="margin-left: 7px;"></i><input type="file"name="img2" hidden id="img3" onchange="validateImage1(this.files)">
+			</label>
+			<label class="btn btn-second">
+    		Выбрать файл <i class="fas fa-plus" style="margin-left: 7px;"></i><input type="file" name="img3" hidden id="img4" onchange="validateImage1(this.files)">
+			</label>
+			<p class="question2">Как правильно сделать фото?</p>
+			<button type="button" id="second_button" class="btn btn-sm step2">Узнать<i class="fas fa-arrow-right"></i></button>
+			<button type="button" class="btn btn-sm step2" id="back"><i class="fas fa-arrow-left"></i>Назад</button>
+			<button type="button" class="btn btn-sm step2 btn-step3" id="next1" hidden><i class="fas fa-arrow-right"></i>Далее</button>
+			</div>
+		</div>
+		<div class="step">
+			<p class="step3">Сделайте фото устройства,<br>к которому подносится ключ</p>
+			<img src="static/img/key3.png" alt="" class="key3">
+			<div id="outImg-step1" class="text-center"></div>
+			<div id="outImg1" class="text-center"></div>
+			<div id="outImg2" class="text-center"></div>
+			<div class="buttons step2">
+			<label class="btn btn-first">
+    		Сделать фото <i class="fas fa-camera" style="margin-left: 7px;"></i><input type="file"name="img4" hidden id="img5" multiple onchange="validateImage2(this.files)">
+			</label>
+			<label class="btn btn-second">
+    		Выбрать файл <i class="fas fa-plus" style="margin-left: 7px;"></i><input type="file" name="img5" hidden id="img6" multiple onchange="validateImage2(this.files)">
+			</label>
+			<button type="button" class="btn btn-sm step2" id="back1"><i class="fas fa-arrow-left"></i>Назад</button>
+			<button type="button" onclick="image()" class="btn btn-sm step2 btn-step4" id="next2" hidden><i class="fas fa-arrow-right"></i>Далее</button>
+			</div>
+		</div>
+		<div class="step">
+			<p class="step3">Фотографии успешно загружены</p>
+			<p class="text-center" id="text-step3">Теперь оформляем доставку</p>
+			<div id="outImg3" class="img-step3"></div>
+			<div id="outImg4" class="img-step3"></div>
+			<div id="outImg5" class="img-step3"></div>
+			<div class="buttons step2">
+			<button type="button" class="btn btn-first" id="next3">Далее</button>
+			<button type="button" class="btn btn-sm step2" id="back2"><i class="fas fa-arrow-left"></i>Назад</button>
+			</div>
+		</div>
+		<div class="step">
+			<p class="step3 input-form">Адрес доставки</p>
+			<div class="form-group">
+            <label for="city">1.Город</label>
+            <input type="text" class="form-control" onkeyup="checkParams()" id="city" name="city" placeholder="Город или населенный пункт" maxlength="90" required>
+            <small id="indexHelp" class="form-text text-muted">Укажите, куда нужно доставить заказ.</small>
+             <label for="street">2. Улица</label>
+            <input type="text" class="form-control" onkeyup="checkParams()" id="street" name="street" placeholder="Территория или улица" maxlength="90" required>
+        	</div>
+        	<div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="house">3. Номер дома</label>
+                    <input type="text" class="form-control" onkeyup="checkParams()" id="house" name="house" placeholder="Дом, корпус или строение" maxlength="50" required>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="flat">4. Квартира/офис</label>
+                    <input type="text" class="form-control" onkeyup="checkParams()" id="flat" name="flat" placeholder="Номер кв. или офиса" maxlength="10" required>
+                </div>
+            </div>
+            <div class="form-group">
+            <label for="index">5. Почтовый индекс</label>
+            <input type="text" class="form-control" onkeyup="checkParams()" id="index" name="index" placeholder="Индекс" maxlength="6" required>
+            <small id="indexHelp" class="form-text text-muted">Нужен для автоматического расчета стоимости доставки.
+            </small>
+        </div>
+        </div>
+			<div class="buttons step2">
+			<button type="button" class="btn btn-first btn-input" id="next4">Далее</button>
+			<button type="button" class="btn btn-sm step2" id="back3"><i class="fas fa-arrow-left"></i>Назад</button>
+			</div>
+		
+	</div>
+
+	<div class="step">
+		<div class="form-group">
+            <div id="price" class="text-center">
+                <h6 id="price">Стоимость доставки: <span id="price_value" style="color: red;"></span> руб.</h6>
+                <input type="hidden" id="delivery_price" name="delivery_price" value="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="phone_number">6. Ваш телефон</label>
+                    <input type="text" class="form-control" onkeyup="checkParams1()" id="phone_number"name="phone_number" data-mask="+7 (000)-000-00-00" placeholder="+7 (___)-___-__-__"
+                           maxlength="20" required>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="email">7. Ваша почта</label>
+                    <input type="email" class="form-control" onkeyup="checkParams1()" id="email"name="email" placeholder="@email" required>
+                </div>
+            </div>
+            <div class="col-md-12">
+            	 <label for="number_of_keys" id="label_for_keys">8. Количество ключей</label>
+            </div>
+            <div class="col-md-3">
+            	<div class="form-group">
+                    <input type="number" class="form-control" id="number_of_keys" name="number_of_keys" value="1" min="1" max="3" required>
+                </div>
+            </div>
+            <div class="col-md-9">
+            	<h6 id="small-text-for-keys"><a href="#" id="more"><b>Дополнительно</b></a> про количество ключей <br> и стоимость доставки</h6>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="index">9. UID ключа</label>
+            <small><a href="javascript:void(0)" id="uid_help_link" class="mx-2">Как узнать?</a></small>
+            <input type="text" class="form-control" id="uid" name="uid" placeholder="UID">
+            <small id="uidHelp" class="form-text text-muted">Отсутствие UID снижает вероятность правильной работы ключа.
+            </small>
+        </div>
+		
+			<div class="buttons step2">
+			<button type="submit" class="btn btn-first btn-input1" id="next51">Отправить</button>
+			<button type="button" class="btn btn-sm step2" id="back5"><i class="fas fa-arrow-left"></i>Назад</button>
+			</div>
+	</div>
+	<div class="step">
+		<h2 class="step3">Спасибо за заказ!</h2>
+		<img src="static/img/check.png" id="img-check" alt="">
+	</div>
+	</form>
+	<img src="static/img/key.png" class="key" alt="">
+	<div class="third_button_question text-center" style="margin-top: 10px"><a href="#" id="third_button_question" style="display: none;">Есть еще вопросы?</a>
+	</div>
+	<div class="about text-center" id="about-text">
+		<small id="about" class="form-text text-muted">Доставка осуществляется нашим партнером компанией СДЕК</small>
+		<a href="#" id="about_button">Подробнее...</a>
+	</div>
+	<div class="about1" id="about-text1" style="display: none;">
+		<p><b> <a href="#" id="about-texth6">Нюансы заполнения адреса </a><br></b>
+		<span>* рекомендовано к прочтению</span></p>
+	</div>
+	
+
+
+
+<!-- Модальное окно количества ключей -->
+<div class="modal fade" id="myInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include 'components/number_of_keys_message.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно помощи UID -->
+<div class="modal fade bd-example-modal-lg" id="myUidModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Как узнать UID ключа?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {% include 'components/uid_message.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Главная страница ссылка по кнопке «Узнать» -->
+<div class="modal fade bd-example-modal-lg" id="myUidModal1" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include 'components/first_button.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Главная страница ссылка по слову «Подробнее» -->
+<div class="modal fade bd-example-modal-lg" id="myUidModal2" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include 'components/about_button.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Вторая страница «Как правильно сделать фото?» по кнопке «Узнать». -->
+<div class="modal fade bd-example-modal-lg" id="myUidModal3" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include 'components/second_button.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Третья страница по фразе «Для чего это нужно». -->
+<div class="modal fade bd-example-modal-lg" id="myUidModal4" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include 'components/third_button.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Третья страница по фразе «Есть ещё вопросы». -->
+<div class="modal fade bd-example-modal-lg" id="myUidModal5" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include 'components/third_button_question.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Пятая страница по фразе «Выберите значения из появляющихся вариантов. Подробно» -->
+<div class="modal fade bd-example-modal-lg" id="myUidModal6" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include 'components/fourth_button.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Пятая страница по фразе «Нюансы заполнения адреса». -->
+<div class="modal fade bd-example-modal-lg" id="myUidModal7" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include 'components/fifth_button.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Шестая страница по фразе «Дополнительно» -->
+<div class="modal fade bd-example-modal-lg" id="myUidModal8" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {% include 'components/sixth_button.html.twig' %}
+            </div>
+            <div class="modal-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="button" class="btn btn-primary" style="width: 30%" data-dismiss="modal">OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

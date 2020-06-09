@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+
+	{% include 'components/head.html.twig' %}
+
+	<body>
+		{% include 'components/navbar.html.twig' %}
+
+		{% if showBrowserWarning %}
+			<!-- Modal -->
+			<div class="modal fade" id="browserModal" tabindex="-1" role="dialog" aria-labelledby="browserModalTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Предупреждение</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="text-center">
+							{% include 'components/browser_message.html.twig' %}
+						</div>
+					</div>
+					<div class="modal-footer">
+						<a class="btn btn-primary" id="openChrome" role="button" href="#">Открыть в Chrome</a>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+					</div>
+				</div>
+			</div>
+			</div>
+
+			<script type="text/javascript">
+				$(window).on('load',function(){
+					$('#browserModal').modal('show');
+					$('#openChrome').attr("href", "googlechrome://navigate?url=" + window.location.href.replace(/https?:\/\//i, ""));
+				});
+			</script>
+		{% endif %}
+
+		<div class="container">
+
+			{% if errors %}
+				<div class="py-3">
+					{% for error in errors %}
+
+					<div class="alert alert-danger" role="alert">
+						{{ error }}
+					</div>
+
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			<div class="row">
+				<div class="col-md-6 offset-md-3 order-md-2 mb-4">
+					{% include 'components/upload_form.html.twig' %}
+				</div>
+			</div>
+		</div>
+
+
+		{% include 'components/footer.html.twig' %}
+	</body>
+</html>
+
